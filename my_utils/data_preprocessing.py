@@ -14,28 +14,28 @@ def set_pad_index(index: int):
     PAD_INDEX = index
 
 
-import init_ihc_thing
+# import init_ihc_thing
 
 
-def get_ihcogram_from_raw_audio(raw_audio: np.ndarray, sr: float):
-    new_sr = 22050
-    y = librosa.resample(raw_audio, orig_sr=sr, target_sr=new_sr)
+# def get_ihcogram_from_raw_audio(raw_audio: np.ndarray, sr: float):
+#     new_sr = 22050
+#     y = librosa.resample(raw_audio, orig_sr=sr, target_sr=new_sr)
 
-    # stft_fmax = 2093
-    # stft_frequency_filter_max = (
-    #     librosa.fft_frequencies(sr=new_sr, n_fft=2048) <= stft_fmax
-    # )
+#     # stft_fmax = 2093
+#     # stft_frequency_filter_max = (
+#     #     librosa.fft_frequencies(sr=new_sr, n_fft=2048) <= stft_fmax
+#     # )
 
-    # stft = librosa.stft(y, hop_length=512, win_length=2048, window="hann")
-    ihced = init_ihc_thing.forward(y)
-    print(ihced.shape)
-    return ihced
-    # stft = stft[stft_frequency_filter_max]
+#     # stft = librosa.stft(y, hop_length=512, win_length=2048, window="hann")
+#     ihced = init_ihc_thing.forward(y)
+#     print(ihced.shape)
+#     return ihced
+# stft = stft[stft_frequency_filter_max]
 
-    # stft_db = librosa.amplitude_to_db(np.abs(np.array(stft)), ref=np.max)
-    # log_stft = ((1.0 / 80.0) * stft_db) + 1.0
+# stft_db = librosa.amplitude_to_db(np.abs(np.array(stft)), ref=np.max)
+# log_stft = ((1.0 / 80.0) * stft_db) + 1.0
 
-    # return log_stft
+# return log_stft
 
 
 def get_spectrogram_from_raw_audio(raw_audio: np.ndarray, sr: float) -> np.ndarray:
